@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z-index</title>
+    <!-- Z axis of the coordinate system -->
+    <style>
+        #outer-div{
+            
+            /* Now outer div has a stacking context */
+            
+            /* Now div 1,2 and 3 are based on outer-div */
+            /* z index of div is 2. therefore div must be top of group of outer box. got it? */
+            /* now increase the z index of outer-div */
+            /* then div-4 send to the back of outer-box group.. see? */
+
+            /* now we are going to remove the position of outer box */
+            /* Then there are no two groups any more, div1,2,3 and 4 are stacking contexts */
+            /* now compare the z index of them. */
+            /* According to the values red must be on the top. see? */
+            
+            /* we can group the layers by positioning its parents and add z-index*/
+            background-color: yellow;
+            width: 250px;
+            height: 250px;
+
+        }
+        #div-1{
+            position: absolute;
+            background-color: red;
+            width: 75px;
+            height: 75px;
+            top: 0;
+            left: 0;
+            z-index: 3;
+      
+        }
+        #div-2{
+            position: absolute;
+            background-color: green;
+            width: 75px;
+            height: 75px;
+            top: 25px;
+            left: 25px;
+         
+        }
+        #div-3{
+            position: absolute;
+            background-color: blue;
+            width: 75px;
+            height: 75px;
+            top: 50px;
+            left: 50px;
+            
+        }
+        #div-4{
+            position: absolute;
+            z-index: 2;
+            background-color: violet;
+            width: 80px;
+            height: 80px;
+            top: 5px;
+            left: 25px;
+         
+        }
+    </style>
+</head>
+<body>
+    <div id="outer-div">
+        <div id="div-1"></div>
+        <div id="div-2"></div>
+        <div id="div-3"></div>
+    </div>
+    <div id="div-4"></div>
+</body>
+</html>
